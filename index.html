@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Notas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Calcular Notas</h1>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="duvidas.html" target="_blank">Duvidas?</a>
+            <a href="sobre.html" target="_blank">Sobre</a>
+        </nav>
+    </header>
+    <section>
+        <div class="container">
+            <div class="campos">
+                <label for="n1">Nota 1:</label>
+                <input type="number" id="n1">
+            </div>
+
+            <div class="campos">
+                <label for="n2">Nota 2:</label>
+                <input type="number" id="n2">
+            </div>
+
+            <div class="campos">
+                <label for="n3">Nota 3:</label>
+                <input type="number" id="n3">
+            </div>
+
+            <div class="campos">
+                <label for="n4">Nota 4:</label>
+                <input type="number" id="n4">
+            </div>
+            <button onclick="calcular()">Calcular média</button>
+        </div>
+    </section>
+    <aside>
+        <div class="tabela">
+            <table>
+                <caption>Suas notas</caption>
+                <thead>
+                    <tr>
+                        <th>Nota 1</th>
+                        <th>Nota 2</th>
+                        <th>Nota 3</th>
+                        <th>Nota 4</th>
+                        <th>Média</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="nota1">0</td>
+                        <td id="nota2">0</td>
+                        <td id="nota3">0</td>
+                        <td id="nota4">0</td>
+                        <td id="media">0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="resultado">
+            
+        </div>
+    </aside>
+    <footer>
+        <p>Desenvolvido por &copy;<a href="https://www.instagram.com/lucassss.lc/" target="_blank">DevLucas</a></p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
