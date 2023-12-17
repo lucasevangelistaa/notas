@@ -1,75 +1,55 @@
 function calcular() {
-    const n1 = parseFloat(document.getElementById('n1').value) || 0;
-    const n2 = parseFloat(document.getElementById('n2').value) || 0;
-    const n3 = parseFloat(document.getElementById('n3').value) || 0;
-    const n4 = parseFloat(document.getElementById('n4').value) || 0;
-    const media = (n1+n2+n3+n4) / 4;
-    const final = 12 - media
+    var n1 = parseFloat(document.getElementById('n1').value) || 0;
+    var n2 = parseFloat(document.getElementById('n2').value) || 0;
+    var n3 = parseFloat(document.getElementById('n3').value) || 0;
+    var n4 = parseFloat(document.getElementById('n4').value) || 0;
 
-    //Verificação para o input aceitar só números entre 0 e 10
-    if (n1 < 0 || n1 > 10) {
-        document.getElementById('resultado').innerHTML = 'ERRO! Digite apenas números entre 0 e 10.'
-    }
-    if (n2 < 0 || n2 > 10) {
-        document.getElementById('resultado').innerHTML = 'ERRO! Digite apenas números entre 0 e 10.'
-    }
-    if (n3 < 0 || n3 > 10) {
-        document.getElementById('resultado').innerHTML = 'ERRO! Digite apenas números entre 0 e 10.'
-    }
-    if (n4 < 0 || n4 > 10) {
-        document.getElementById('resultado').innerHTML = 'ERRO! Digite apenas números entre 0 e 10.'
-    }
-
-
-    //Situação
-    if (media >= 7) {
-        document.getElementById('resultado').innerHTML = 'Parabéns, você está APROVADO(A)!'
-    }
-    if (media < 7) {
-        document.getElementById('resultado').innerHTML = `Você está de RECUPERAÇÃO FINAL, e precisa tirar ${final} para poder passar de ano.`
-    }
-    if (final > 10) {
-        document.getElementById('resultado').innerHTML = `Você está REPROVADO(A), sua media foi muito baixa.`
-    }
+    var totalNotas = n1 + n2 + n3 + n4;
+    var md = (n1 + n2 + n3 + n4) / 4;
 
     //Tabela de notas e a Média
     document.getElementById('nota1').textContent = n1;
     document.getElementById('nota2').textContent = n2;
     document.getElementById('nota3').textContent = n3;
     document.getElementById('nota4').textContent = n4;
-    document.getElementById('media').textContent = media;
+    document.getElementById('media').textContent = md;
+
     //Verificação para o input aceitar só números entre 0 e 10
-    if (n1 < 0 || n1 > 10) {
-        document.getElementById('resultado').innerHTML = 'ERRO! Digite apenas números entre 0 e 10.'
-        document.getElementById('nota1').textContent = 0;
-        document.getElementById('nota2').textContent = 0;
-        document.getElementById('nota3').textContent = 0;
-        document.getElementById('nota4').textContent = 0;
-        document.getElementById('media').textContent = 0;
+    if (isNaN(n1) || isNaN(n2) || isNaN(n3) || isNaN(n4) ||
+        n1 < 0 || n1 > 10 || n2 < 0 || n2 > 10 ||
+        n3 < 0 || n3 > 10 || n4 < 0 || n4 > 10) {
+        alert('Por favor, insira notas válidas entre 0 e 10.');
+        document.getElementById('nota1').textContent = '';
+        document.getElementById('nota2').textContent = '';
+        document.getElementById('nota3').textContent = '';
+        document.getElementById('nota4').textContent = '';
+        document.getElementById('media').textContent = '';
+        return;
     }
-    if (n2 < 0 || n2 > 10) {
-        document.getElementById('resultado').innerHTML = 'ERRO! Digite apenas números entre 0 e 10.'
-        document.getElementById('nota1').textContent = 0;
-        document.getElementById('nota2').textContent = 0;
-        document.getElementById('nota3').textContent = 0;
-        document.getElementById('nota4').textContent = 0;
-        document.getElementById('media').textContent = 0;        
-    }
-    if (n3 < 0 || n3 > 10) {
-        document.getElementById('resultado').innerHTML = 'ERRO! Digite apenas números entre 0 e 10.'
-        document.getElementById('nota1').textContent = 0;
-        document.getElementById('nota2').textContent = 0;
-        document.getElementById('nota3').textContent = 0;
-        document.getElementById('nota4').textContent = 0;
-        document.getElementById('media').textContent = 0;
-    }
-    if (n4 < 0 || n4 > 10) {
-        document.getElementById('resultado').innerHTML = 'ERRO! Digite apenas números entre 0 e 10.'
-        document.getElementById('nota1').textContent = 0;
-        document.getElementById('nota2').textContent = 0;
-        document.getElementById('nota3').textContent = 0;
-        document.getElementById('nota4').textContent = 0;
-        document.getElementById('media').textContent = 0;
+    if (totalNotas === 0) {
+        alert('Por favor, insira pelo menos uma nota.');
+        return;
     }
 
+    var notasNaoDigitadas = 4 - (n1 ? 1 : 0) - (n2 ? 1 : 0) - (n3 ? 1 : 0) - (n4 ? 1 : 0);
+
+    if (notasNaoDigitadas > 0) {
+        var notasFaltando = (28 - totalNotas) / notasNaoDigitadas;
+        if (notasFaltando > 10) {
+            document.getElementById('resultado').innerHTML = "Você já esta de recuperação final"
+        } else {
+            document.getElementById('resultado').innerHTML = 'Você precisa obter ' + notasFaltando.toFixed(2) + ' nas notas faltantes para atingir a soma total de 28.';
+        }
+    } else {
+        var media = totalNotas / 4;
+
+        if (media < 7) {
+            var finalExamGrade = media - 12;
+            document.getElementById('resultado').innerHTML = 'Média: ' + media.toFixed(2) + '<br>' +
+                'Você precisa obter ' + finalExamGrade.toFixed(2) + ' na prova final para ser aprovado.';
+        } else {
+            document.getElementById('resultado').innerHTML = 'Média: ' + media.toFixed(2) + '<br>' +
+                'Parabéns! Você foi aprovado.';
+        }
+    }
 }
