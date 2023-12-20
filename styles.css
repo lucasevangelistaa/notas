@@ -101,6 +101,28 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+/*Estilos da aba de Dúvidas*/
+
+main {
+    margin: 50px auto;
+    width: 80vw;
+    padding: 10px;
+}
+
+main h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+main h2 {
+    margin: 15px;
+}
+main p {
+    margin: 15px;
+    text-align: justify;
+}
+
 @media screen and (min-width: 601px) {
     .container {
         width: 50vw;

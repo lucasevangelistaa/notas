@@ -3,7 +3,6 @@ function calcular() {
     var n2 = parseFloat(document.getElementById('n2').value) || 0;
     var n3 = parseFloat(document.getElementById('n3').value) || 0;
     var n4 = parseFloat(document.getElementById('n4').value) || 0;
-
     var totalNotas = n1 + n2 + n3 + n4;
     var md = (n1 + n2 + n3 + n4) / 4;
 
@@ -31,12 +30,14 @@ function calcular() {
         return;
     }
 
+    // Verificando quantas notas foram fornecidas pelo usuário
     var notasNaoDigitadas = 4 - (n1 ? 1 : 0) - (n2 ? 1 : 0) - (n3 ? 1 : 0) - (n4 ? 1 : 0);
 
+    // Situação
     if (notasNaoDigitadas > 0) {
         var notasFaltando = (28 - totalNotas) / notasNaoDigitadas;
         if (notasFaltando > 10) {
-            document.getElementById('resultado').innerHTML = "Você já esta de recuperação final"
+            document.getElementById('resultado').innerHTML = "Você já esta de recuperação final! Sua média está muito baixa."
         } else {
             document.getElementById('resultado').innerHTML = 'Você precisa obter ' + notasFaltando.toFixed(2) + ' nas notas faltantes para atingir a soma total de 28.';
         }
@@ -44,9 +45,9 @@ function calcular() {
         var media = totalNotas / 4;
 
         if (media < 7) {
-            var finalExamGrade = media - 12;
+            var provaFinal = 12 - media;
             document.getElementById('resultado').innerHTML = 'Média: ' + media.toFixed(2) + '<br>' +
-                'Você precisa obter ' + finalExamGrade.toFixed(2) + ' na prova final para ser aprovado.';
+                'Você precisa obter ' + provaFinal.toFixed(2) + ' na prova final para ser aprovado.';
         } else {
             document.getElementById('resultado').innerHTML = 'Média: ' + media.toFixed(2) + '<br>' +
                 'Parabéns! Você foi aprovado.';
