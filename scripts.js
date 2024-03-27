@@ -44,6 +44,11 @@ function calcular() {
     } else {
         var media = totalNotas / 4;
 
+        if (media < 2) {
+            document.getElementById('resultado').innerHTML = "Você já está reprovado!!"
+            return;
+        }
+
         if (media < 7) {
             var provaFinal = 12 - media;
             document.getElementById('resultado').innerHTML = 'Média: ' + media.toFixed(2) + '<br>' +
