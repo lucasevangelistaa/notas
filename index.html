@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Notas</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
     <header>
         <h1>Calcular Notas</h1>
@@ -15,61 +17,64 @@
             <a href="sobre.html">Sobre</a>
         </nav>
     </header>
-    <section>
-        <div class="container">
-            <div class="campos">
-                <label for="n1">Nota 1:</label>
-                <input type="number" id="n1">
+    <main>
+        <section>
+            <div class="container">
+                <div class="campos">
+                    <label for="n1">Nota 1:</label>
+                    <input type="number" class="input-number" id="n1">
+                </div>
+                <div class="campos">
+                    <label for="n2">Nota 2:</label>
+                    <input type="number" class="input-number" id="n2">
+                </div>
+                <div class="campos">
+                    <label for="n3">Nota 3:</label>
+                    <input type="number" class="input-number" id="n3">
+                </div>
+                <div class="campos">
+                    <label for="n4">Nota 4:</label>
+                    <input type="number" class="input-number" id="n4">
+                </div>
+                <button onclick="calcular()">Calcular média</button>
             </div>
-
-            <div class="campos">
-                <label for="n2">Nota 2:</label>
-                <input type="number" id="n2">
+        </section>
+        <aside>
+            <div class="tabela">
+                <table>
+                    <caption>Suas notas</caption>
+                    <thead>
+                        <tr>
+                            <th>Nota 1</th>
+                            <th>Nota 2</th>
+                            <th>Nota 3</th>
+                            <th>Nota 4</th>
+                            <th>Média</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="nota1">0</td>
+                            <td id="nota2">0</td>
+                            <td id="nota3">0</td>
+                            <td id="nota4">0</td>
+                            <td id="media">0</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-
-            <div class="campos">
-                <label for="n3">Nota 3:</label>
-                <input type="number" id="n3">
+            <div id="resultado">
+                Sua situação aparecerá aqui!
             </div>
-
-            <div class="campos">
-                <label for="n4">Nota 4:</label>
-                <input type="number" id="n4">
-            </div>
-            <button onclick="calcular()">Calcular média</button>
-        </div>
-    </section>
-    <aside>
-        <div class="tabela">
-            <table>
-                <caption>Suas notas</caption>
-                <thead>
-                    <tr>
-                        <th>Nota 1</th>
-                        <th>Nota 2</th>
-                        <th>Nota 3</th>
-                        <th>Nota 4</th>
-                        <th>Média</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="nota1">0</td>
-                        <td id="nota2">0</td>
-                        <td id="nota3">0</td>
-                        <td id="nota4">0</td>
-                        <td id="media">0</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div id="resultado">
-            Sua situação aparecerá aqui!
-        </div>
-    </aside>
+        </aside>
+    </main>
     <footer>
-        <p>&copy;<a href="https://www.instagram.com/lucassss.lc/" target="_blank">Lucas Evangelista-2023. Todos os Direitos Reservados.</a></p>
+        <div>
+            <p>Desenvolvido por</p>
+            <a href="http://instagram.com/_lucode" target="_blank"><img src="imagens/1.png" alt="Agência Lucode"></a>
+        </div>
     </footer>
-    <script src="scripts.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
+
 </html>
