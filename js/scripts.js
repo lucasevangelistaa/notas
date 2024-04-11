@@ -37,7 +37,8 @@ function calcular() {
     if (notasNaoDigitadas > 0) {
         var notasFaltando = (28 - totalNotas) / notasNaoDigitadas;
         if (notasFaltando > 10) {
-            document.getElementById('resultado').innerHTML = "Você já esta de recuperação final! Sua média está muito baixa."
+            var provaFinal = 12 - media;
+            document.getElementById('resultado').innerHTML = "Você já esta de recuperação final! Sua média está muito baixa.<br>";
         } else {
             document.getElementById('resultado').innerHTML = 'Você precisa obter ' + notasFaltando.toFixed(2) + ' nas notas faltantes para atingir a soma total de 28.';
         }
