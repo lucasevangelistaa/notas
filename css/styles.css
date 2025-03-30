@@ -132,6 +132,17 @@ footer {
     text-align: center;
 }
 
+footer a {
+    text-decoration: none;
+    color: black;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
 @media screen and (max-width: 767px) {
     .container {
         width: 80vw;
